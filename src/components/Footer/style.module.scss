@@ -1,0 +1,13 @@
+@use"../../app/colors.scss";
+
+.footer{
+    background-color: colors.$dark;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    
+    
+    a{
+        text-decoration: underline;
+    }
+}

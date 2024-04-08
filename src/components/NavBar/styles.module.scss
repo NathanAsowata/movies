@@ -1,0 +1,90 @@
+@use"../../app/colors.scss";
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+
+.nav{
+    padding: 10px 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+    font-family: "Pacifico", cursive;
+    color: colors.$primary;
+    font-size: 28px;
+
+    &:hover{
+        color: colors.$hover;
+    }
+}
+.desktopMenu, .mobileMenu {
+    
+    a{
+        position: relative;
+        text-decoration: none;
+    }
+
+    a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 50%;
+        background-color: colors.$hover;
+        transition: width 0.3s ease, left 0.3s ease;
+      }
+
+      a:hover{
+        color: colors.$hover;
+      }
+      
+      a:hover::after {
+        width: 100%;
+        left: 0;
+      }
+}
+
+.desktopMenu{
+    width: 550px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.icon, .mobileMenu{
+    display: none;
+}
+
+// Animations for mobile menu
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .desktopMenu{
+        display: none;
+    }
+    .icon{
+        display: block;
+        font-size: 25px;
+        color: colors.$primary;
+    }
+    .mobileMenu{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        background-color: colors.$hover;
+        width: 100vw;
+        height: calc(100vh - 100px);
+    }
+}
