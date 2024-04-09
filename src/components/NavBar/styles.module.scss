@@ -59,9 +59,9 @@
 }
 
 // Animations for mobile menu
-@keyframes slideInFromLeft {
+@keyframes slideInFromRight {
     0% {
-        transform: translateX(-100%);
+        transform: translateX(100%);
         opacity: 0;
     }
     100% {
@@ -80,11 +80,19 @@
         color: colors.$primary;
     }
     .mobileMenu{
+        z-index: 10;
         position: absolute;
+        top: 70px;
+        left: 15px;
+        padding: 25px;
         display: flex;
         flex-direction: column;
-        background-color: colors.$hover;
-        width: 100vw;
-        height: calc(100vh - 100px);
+        gap: 10px;
+        background-color: colors.$dark;
+        color: white;
+        width: calc(100vw - 15px);
+        height: 450px;
+        box-shadow: 2px 2px 2px colors.$shadow;
+        animation: slideInFromRight 0.3s ease-out forwards;
     }
 }

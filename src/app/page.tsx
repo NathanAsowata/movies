@@ -1,7 +1,13 @@
+import SearchBar from "@/components/SearchBar"
+import styles from "./page.module.scss"
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <>
+      <header className={styles.header}>
+        <SearchBar />
+      </header>
+    </>
   )
 }
 

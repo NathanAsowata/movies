@@ -1,0 +1,45 @@
+@use"../../app/colors.scss";
+
+
+.search{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+    padding: 5px;
+    border-radius: 50px;
+    box-shadow: 2px 2px 5px colors.$shadow;
+}
+.input{
+    max-width: 600px;
+    width: 75vw;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 10px;
+    font-size: 16px;
+}
+.button{
+    border: none;
+    border-radius: 50px;
+    background-color: colors.$primary;
+    color: white;
+    padding: 12px 14px;
+    font-size: 16px;
+}
+.error{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 7px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid red;
+    background-color: #FEEBEA;
+    color: red;
+    padding: 5px;
+    margin-top: 5px;
+}
+.errorIcon{
+    font-size: 18px;
+}

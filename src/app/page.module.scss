@@ -1,0 +1,11 @@
+@use"./colors.scss";
+
+.header{
+    background: url(/hero.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    display: grid;
+    place-content: center;
+}
