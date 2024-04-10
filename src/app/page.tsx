@@ -19,7 +19,7 @@ const Home = () => {
     const data = await res.json()
     setSelectedItems(data.results)
   }
-
+ 
   function handleTabSelection(tabName: string, tabNumber: number) {
     setActiveTab(tabNumber);
     setSelectedTab(tabName)

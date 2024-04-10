@@ -5,7 +5,7 @@ export async function GET (req:NextRequest, res:Response) {
     
     const url = `https://api.themoviedb.org/3/tv/on_the_air?language=en-US&page=1`
     
-    const trending = await fetch(url, {
+    const upcoming = await fetch(url, {
         method: "GET",
         headers: {
             Accept: 'application/json',
@@ -13,7 +13,7 @@ export async function GET (req:NextRequest, res:Response) {
         }
     })
 
-    const data = await trending.json()
+    const data = await upcoming.json()
 
     return NextResponse.json(data)
 }
