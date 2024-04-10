@@ -1,36 +1,19 @@
-@use"./colors.scss";
+@use"../../colors.scss";
 
-.header{
-    background: url(/hero.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 500px;
+
+.container{
     display: grid;
-    place-content: center;
-}
-.main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
 }
-.tabs{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 5px;
-    margin: 25px 5px;
-}
-.tab{
+.header{
+    display: grid;
+    place-content: center;
+    background-color: colors.$light;
+    height: 250px;
+    width: 100vw;
     font-weight: 400;
-    padding: 10px;
-    font-size: 18px;
-    width: 150px;
-    text-align: center;
-    box-shadow: 2px 2px 2px colors.$shadow-light;
+    margin-bottom: 50px;
 }
-
 .content{
     padding: 0px 25px;
     margin-bottom: 50px;
@@ -53,9 +36,6 @@
 }
 
 @media screen and (max-width: 575px){
-    .tab{
-        width: fit-content;
-    }
     .content{
         padding: 50px 0px;
         grid-template-columns: 1fr;

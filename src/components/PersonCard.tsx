@@ -6,7 +6,7 @@ const PersonCard = ({person}: {person:personCardProps}) => {
 
 
   const link = `/person/${person.id}`
-  const img_url = `https://image.tmdb.org/t/p/original${person.profile_path}}`
+  const img_url = `https://image.tmdb.org/t/p/original${person.profile_path}`
   const name = person.name
   const isPerson = true
   const additonalInfo = person.known_for_department

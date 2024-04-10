@@ -7,9 +7,9 @@ import { useRouter } from "next/navigation";
 import { MdClose, MdErrorOutline } from "react-icons/md";
 
 
-const SearchBar = () => {
+const SearchBar = ({currentQuery}:{currentQuery: string}) => {
 
-    const [userInput, setUserInput] = useState("");
+    const [userInput, setUserInput] = useState(currentQuery);
     const [errorMessage, setErrorMessage] = useState("");
     
     const router = useRouter()
@@ -18,19 +18,24 @@ const SearchBar = () => {
         // Prevent page reload on submit
         e.preventDefault()
 
-        // Regex to disallow special characters except space, ampersand, and hashtag
-        const regex = /^[a-zA-Z0-9 &#.,]*$/;
+        // Regex to disallow special characters except space, column, and hashtag
+        const regex = /^[a-zA-Z0-9 :#.,]*$/;
 
         // Validate user input
         if(userInput === " "){
             setErrorMessage("Enter a valid search term")
         }
         else if(!regex.test(userInput)){
-            setErrorMessage("Enter only numbers, letters, spaces, & or #")
+            setErrorMessage("Enter only numbers, letters, spaces")
         }
         else{
             router.push(`/search?q=${userInput}`)
         }
+    }
+
+    // Reset error message after 2 seconds
+    if(errorMessage){
+        setTimeout(() => setErrorMessage(""), 2000)
     }
 
   return (
