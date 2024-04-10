@@ -15,10 +15,10 @@ const Card = ({ link, img_url, name, isPerson, additonalInfo }: cardProp) => {
 
   let image = img_url
 
-  if(img_url === "https://image.tmdb.org/t/p/originalnull}"){
+  if(img_url === "https://image.tmdb.org/t/p/originalnull"){
     image = "/fallback.png"
   }
-
+  
 
   return (
     <div className={styles.card}>

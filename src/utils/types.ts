@@ -18,3 +18,14 @@ export type personCardProps = {
     name: string,
     known_for_department: string
 }
+export type searchResultType = {
+    id: number,
+    media_type: string,
+    poster_path: string,
+    profile_path: string,
+    title: string,
+    name:string
+    vote_average: number,
+    vote_count: number,
+    known_for_department: string
+}

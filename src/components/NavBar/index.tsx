@@ -18,7 +18,6 @@ const NavBar = () => {
             <Link href="/search">Search</Link>
             <Link href="/movies/upcoming">Upcoming Movies</Link>
             <Link href="/tv/upcoming"> Upcoming TV Shows</Link>
-            <Link href="/favorites">My Favorites</Link>
         </span>
 
         <HiMenuAlt3 className={styles.icon} onClick={() => setIsOpen(!isOpen)} />
@@ -30,7 +29,6 @@ const NavBar = () => {
             <Link href="/search">Search</Link>
             <Link href="/movies/upcoming">Upcoming Movies</Link>
             <Link href="/tv/upcoming"> Upcoming TV Shows</Link>
-            <Link href="/favorites">My Favorites</Link>
           </span>          
         )}
     </nav>

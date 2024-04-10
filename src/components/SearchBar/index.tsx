@@ -7,9 +7,9 @@ import { useRouter } from "next/navigation";
 import { MdClose, MdErrorOutline } from "react-icons/md";
 
 
-const SearchBar = () => {
+const SearchBar = ({currentQuery}:{currentQuery: string}) => {
 
-    const [userInput, setUserInput] = useState("");
+    const [userInput, setUserInput] = useState(currentQuery);
     const [errorMessage, setErrorMessage] = useState("");
     
     const router = useRouter()
@@ -31,6 +31,11 @@ const SearchBar = () => {
         else{
             router.push(`/search?q=${userInput}`)
         }
+    }
+
+    // Reset error message after 2 seconds
+    if(errorMessage){
+        setTimeout(() => setErrorMessage(""), 2000)
     }
 
   return (
