@@ -8,18 +8,39 @@ import MovieCard from "@/components/MovieCard";
 import { searchResultType } from "@/utils/types";
 import TvCard from "@/components/TvCard";
 import PersonCard from "@/components/PersonCard";
+import NoContent from "@/components/NoContent";
 
 const Search = () => {
   const [searchResults, setSearchResults] = useState<searchResultType[]>([]);
+  const [isEmpty, setIsEmpty] = useState(false)
+  const [noResult, setNoResult] = useState(false)
 
   const parameters = useSearchParams();
-  const userInput = parameters.get("q") || "john";
+  const userInput = parameters.get("q") || " ";
 
   async function getSearchResults(query: string) {
-    const url = `/api/search?query=${query}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    setSearchResults(data.results);
+    if(query === " "){
+      setIsEmpty(true)
+      setSearchResults([])
+      setNoResult(false)
+    }
+    else{
+      const url = `/api/search?query=${query}`;
+      const res = await fetch(url);
+      const data = await res.json();
+      
+      setIsEmpty(false)
+      
+      if(data.results.length > 0){
+        setNoResult(false)
+        setSearchResults(data.results);
+      }
+      else{
+        setNoResult(true)
+        setSearchResults([])
+      }
+
+    }
   }
 
   // Load search result by default
@@ -33,6 +54,10 @@ const Search = () => {
         <section className={styles.searchContainer}>
           <SearchBar currentQuery={userInput} />
         </section>
+        
+        {isEmpty && <NoContent message="Try typing 'Dune', 'Spiderman' or 'Suits'..." />}
+
+        {noResult && <NoContent message="No results for this search. Try something else." />}
 
         <section className={styles.searchResults}>
           {searchResults &&
