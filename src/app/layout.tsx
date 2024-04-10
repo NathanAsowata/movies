@@ -7,7 +7,7 @@ import NavBar from "@/components/NavBar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Home - Movies",
+  title: "Movies",
   description: "Movie aggregator search app",
 };
 

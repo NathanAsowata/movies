@@ -42,7 +42,7 @@ const Home = () => {
   return (
     <>
       <header className={styles.header}>
-        <SearchBar currentQuery=" " />
+        <SearchBar currentQuery="" />
       </header>
       <main className={styles.main}>
         <section className={styles.tabs}>

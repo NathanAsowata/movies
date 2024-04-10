@@ -18,15 +18,15 @@ const SearchBar = ({currentQuery}:{currentQuery: string}) => {
         // Prevent page reload on submit
         e.preventDefault()
 
-        // Regex to disallow special characters except space, ampersand, and hashtag
-        const regex = /^[a-zA-Z0-9 &#.,]*$/;
+        // Regex to disallow special characters except space, column, and hashtag
+        const regex = /^[a-zA-Z0-9 :#.,]*$/;
 
         // Validate user input
         if(userInput === " "){
             setErrorMessage("Enter a valid search term")
         }
         else if(!regex.test(userInput)){
-            setErrorMessage("Enter only numbers, letters, spaces, & or #")
+            setErrorMessage("Enter only numbers, letters, spaces")
         }
         else{
             router.push(`/search?q=${userInput}`)
