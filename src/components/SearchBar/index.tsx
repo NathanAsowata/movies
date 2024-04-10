@@ -22,7 +22,7 @@ const SearchBar = () => {
         const regex = /^[a-zA-Z0-9 &#.,]*$/;
 
         // Validate user input
-        if(userInput === ""){
+        if(userInput === " "){
             setErrorMessage("Enter a valid search term")
         }
         else if(!regex.test(userInput)){

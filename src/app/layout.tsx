@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   description: "Movie aggregator search app",
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -21,7 +22,7 @@ export default function RootLayout({
       <body className={`${inter.className} container`}>
         <NavBar />
         <main className="main">
-        {children}
+          {children}
         </main>
         <Footer />
       </body>

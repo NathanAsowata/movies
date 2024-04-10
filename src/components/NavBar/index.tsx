@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import styles from "./styles.module.scss"
+import styles from "./style.module.scss"
 import { HiMenuAlt3 } from "react-icons/hi"
 import { useState } from "react"
 
@@ -16,9 +16,8 @@ const NavBar = () => {
         <span className={styles.desktopMenu}>
             <Link href="/">Home</Link>
             <Link href="/search">Search</Link>
-            <Link href="/movies">Movies</Link>
-            <Link href="/tv">TV Shows</Link>
-            <Link href="/people">People</Link>
+            <Link href="/movies/upcoming">Upcoming Movies</Link>
+            <Link href="/tv/upcoming"> Upcoming TV Shows</Link>
             <Link href="/favorites">My Favorites</Link>
         </span>
 
@@ -29,9 +28,8 @@ const NavBar = () => {
           <span className={styles.mobileMenu}>
             <Link href="/">Home</Link>
             <Link href="/search">Search</Link>
-            <Link href="/movies">Movies</Link>
-            <Link href="/tv">TV Shows</Link>
-            <Link href="/people">People</Link>
+            <Link href="/movies/upcoming">Upcoming Movies</Link>
+            <Link href="/tv/upcoming"> Upcoming TV Shows</Link>
             <Link href="/favorites">My Favorites</Link>
           </span>          
         )}
