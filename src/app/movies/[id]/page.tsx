@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import styles from "./style.module.scss";
+import styles from "./page.module.scss";
 import { movieDetailsType } from "@/utils/types";
 import Image from "next/image";
 import Ratings from "@/components/Ratings";
@@ -9,6 +9,8 @@ import Link from "next/link";
 
 const MovieDetails = ({ params }: { params: { id: string } }) => {
   const [movieDetails, setMovieDetails] = useState<movieDetailsType>();
+  const [activeTab, setActiveTab] = useState(1);
+  const [selectedTab, setSelectedTab] = useState("movie")
 
   const movieID = params.id;
 
@@ -17,6 +19,20 @@ const MovieDetails = ({ params }: { params: { id: string } }) => {
     const data = await res.json();
 
     setMovieDetails(data);
+  }
+
+    
+  function handleTabSelection(tabName: string, tabNumber: number) {
+    setActiveTab(tabNumber);
+    setSelectedTab(tabName)
+  }
+
+  function tabStyle(tabNumber: number) {
+    return {
+      cursor: "pointer",
+      color: activeTab === tabNumber ? "white" : "black",
+      backgroundColor: activeTab === tabNumber ? "#2118FF" : "#E5E8FF",
+    };
   }
 
   useEffect(() => {
@@ -34,7 +50,7 @@ const MovieDetails = ({ params }: { params: { id: string } }) => {
             height={375}
             className={styles.poster}
           />
-          <div className={styles.content}>
+          <div className={styles.summary}>
             <h1>{movieDetails.title}</h1>
             <p className={styles.ratings}>
               <Ratings ratings={movieDetails.vote_average} />
@@ -51,6 +67,24 @@ const MovieDetails = ({ params }: { params: { id: string } }) => {
           </div>
         </header>
       )}
+      <main className={styles.main}>
+      <section className={styles.tabs}>
+          <h3
+            className={styles.tab}
+            style={tabStyle(1)}
+            onClick={() => handleTabSelection("cast", 1)}
+          >
+            Cast
+          </h3>
+          <h3
+            className={styles.tab}
+            style={tabStyle(2)}
+            onClick={() => handleTabSelection("media", 2)}
+          >
+            Media
+          </h3>
+        </section>
+      </main>
     </>
   );
 };
