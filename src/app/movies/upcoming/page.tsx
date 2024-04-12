@@ -6,29 +6,29 @@ import MovieCard from "@/components/MovieCard";
 import { movieCardProps } from "@/utils/types";
 
 const UpcomingMovies = () => {
-  const [movies, setMovies] = useState<movieCardProps[]>([]);
+	const [movies, setMovies] = useState<movieCardProps[]>([]);
 
-  async function getMovies() {
-    const res = await fetch(`/api/movies/upcoming`);
-    const data = await res.json();
-    setMovies(data.results);
-  }
+	async function getMovies() {
+		const res = await fetch(`/api/movies/upcoming`);
+		const data = await res.json();
+		setMovies(data.results);
+	}
 
-  useEffect(() => {
-    getMovies();
-  }, []);
+	useEffect(() => {
+		getMovies();
+	}, []);
 
-  return (
-    <div className={styles.container}>
-      <header className={styles.header}>
-        <h1>Upcoming Movies</h1>
-      </header>
-      <main className={styles.content}>
-        {movies &&
-          movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
-      </main>
-    </div>
-  );
+	return (
+		<div className={styles.container}>
+			<header className={styles.header}>
+				<h1>Upcoming Movies</h1>
+			</header>
+			<main className={styles.content}>
+				{movies &&
+					movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
+			</main>
+		</div>
+	);
 };
 
 export default UpcomingMovies;

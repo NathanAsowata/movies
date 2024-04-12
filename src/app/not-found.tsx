@@ -1,10 +1,7 @@
-import NoContent from "@/components/NoContent"
-
+import NoContent from "@/components/NoContent";
 
 const NotFound = () => {
-  return (
-    <NoContent message="Page not found." />
-  )
-}
+	return <NoContent message="Page not found." />;
+};
 
-export default NotFound
+export default NotFound;
