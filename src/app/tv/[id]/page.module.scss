@@ -1,14 +1,51 @@
-@use"./colors.scss";
+@use"../../colors.scss";
 
 .header{
-    background: url(/hero.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 500px;
-    display: grid;
-    place-content: center;
+    background-color: colors.$light;
+    min-height: 500px;
 }
+.details{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 25px 0px;
+    padding-left: 20vw;
+}
+.poster{
+    box-shadow: 2px 2px 4px colors.$shadow;
+    border-radius: 10px;
+}
+.summary{
+    max-width: 450px;
+    padding: 10px;
+    h1 {
+        font-size: 22px;
+    }
+}
+.ratings{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    font-size: 14px;
+    color: gray;
+    margin: 5px 0px;
+}
+.extraDetails{
+    margin: 10px 0px;
+    font-size: 15px;
+    line-height: 1.4;
+    font-weight: 300;
+}
+.dot{
+    font-weight: bold;
+    font-size: 20px;
+    color: gray;
+    margin-right: 5px;
+}
+.overview{
+    font-size: 16px;
+}
+
 .main{
     display: flex;
     flex-direction: column;
@@ -53,6 +90,11 @@
 }
 
 @media screen and (max-width: 575px){
+    .details{
+        padding: 25px;
+        flex-direction: column;
+        align-items: center;
+    }
     .tab{
         width: fit-content;
     }

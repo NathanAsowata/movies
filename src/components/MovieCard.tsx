@@ -4,7 +4,7 @@ import Card from "./Card"
 
 const MovieCard = ({movie}:{movie: movieCardProps}) => {
 
-  const link = `/movie/${movie.id}`
+  const link = `/movies/${movie.id}`
   const img_url = `https://image.tmdb.org/t/p/original${movie.poster_path}`
   const name = movie.title
   const isPerson = false

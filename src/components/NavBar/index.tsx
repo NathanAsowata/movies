@@ -25,10 +25,10 @@ const NavBar = () => {
         
         {isOpen && (
           <span className={styles.mobileMenu}>
-            <Link href="/">Home</Link>
-            <Link href="/search">Search</Link>
-            <Link href="/movies/upcoming">Upcoming Movies</Link>
-            <Link href="/tv/upcoming"> Upcoming TV Shows</Link>
+            <Link href="/" onClick={() => setIsOpen(false)}>Home</Link>
+            <Link href="/search" onClick={() => setIsOpen(false)}>Search</Link>
+            <Link href="/movies/upcoming" onClick={() => setIsOpen(false)}>Upcoming Movies</Link>
+            <Link href="/tv/upcoming" onClick={() => setIsOpen(false)}> Upcoming TV Shows</Link>
           </span>          
         )}
     </nav>

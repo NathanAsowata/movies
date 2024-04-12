@@ -96,5 +96,18 @@
         height: 450px;
         box-shadow: 2px 2px 2px colors.$shadow;
         animation: slideInFromRight 0.3s ease-out forwards;
+        
+        
+        a::after{
+            background-color: white;
+        }
+        a:hover{
+            color: white;
+        }
+        a:hover::after {
+            color: white;
+            width: 100%;
+            left: 0;
+        }
     }
 }
