@@ -15,7 +15,7 @@ const Card = ({ link, img_url, name, isPerson, additonalInfo }: cardProp) => {
 
   let image = img_url
 
-  if(img_url === "https://image.tmdb.org/t/p/originalnull"){
+  if(img_url === "https://image.tmdb.org/t/p/originalnull" || img_url === "https://image.tmdb.org/t/p/originalundefined&w=640&q=75" ){
     image = "/fallback.png"
   }
   
@@ -23,7 +23,7 @@ const Card = ({ link, img_url, name, isPerson, additonalInfo }: cardProp) => {
   return (
     <div className={styles.card}>
       <Link href={link}>
-        <Image src={image} alt={name} width={248} height={375} className={styles.image} />
+        <Image src={image} alt={`${name} poster`} width={248} height={375} className={styles.image} />
         <section className={styles.content}>
           <h5 className={styles.name}>{name}</h5>
           {!isPerson ? (

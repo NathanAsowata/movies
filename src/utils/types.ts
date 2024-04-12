@@ -16,7 +16,8 @@ export type personCardProps = {
     id: number,
     profile_path: string,
     name: string,
-    known_for_department: string
+    known_for_department: string,
+    character?: string 
 }
 export type searchResultType = {
     id: number,
@@ -45,10 +46,45 @@ export type movieDetailsType = {
     imdb_id: string,
     vote_average: number,
     vote_count: number,
+    release_date: string,
+    runtime: number,
+    status: string,
+    genres: {
+        id: number,
+        name: string
+    }[]
 }
-export type modalImageProp = {
-    file_path: string,
-    aspect_ratio: number,
-    height: number,
-    width: number,
+export type tvDetailsType = {
+    name: string,
+    overview: string,
+    poster_path: string,
+    first_air_date: string,
+    last_air_date: string,
+    in_production: boolean,
+    number_of_episodes: number,
+    number_of_seasons: number,
+    vote_average: number,
+    vote_count: number,
+    genres: {
+        id: number,
+        name: string
+    }[]
+}
+export type personDetailsType = {
+    name: string,
+    profile_path: string,
+    biography: string,
+    birthday: string,
+    deathday: string,
+    combined_credits: {
+        cast: {
+            id: number,
+            media_type: string,
+            poster_path: string,
+            title: string,
+            name:string
+            vote_average: number,
+            vote_count: number,
+        }[]
+    }
 }

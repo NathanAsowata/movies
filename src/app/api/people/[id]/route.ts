@@ -3,13 +3,13 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET ( request: Request, { params }: { params: { id: string } }) {
 
-    // Get movie ID
-    const movieID = params.id
+    // Get person ID
+    const personID = params.id
 
     
-    const url = `https://api.themoviedb.org/3/movie/${movieID}/credits`
+    const url = `https://api.themoviedb.org/3/person/${personID}?append_to_response=combined_credits`
     
-    const cast = await fetch(url, {
+    const person = await fetch(url, {
         method: "GET",
         headers: {
             Accept: 'application/json',
@@ -17,7 +17,7 @@ export async function GET ( request: Request, { params }: { params: { id: string
         }
     })
 
-    const data = await cast.json()
+    const data = await person.json()
 
-    return NextResponse.json(data.cast)
+    return NextResponse.json(data)
 }

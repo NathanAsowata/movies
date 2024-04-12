@@ -16,19 +16,11 @@
     border-radius: 10px;
 }
 .summary{
-    max-width: 450px;
+    max-width: 750px;
     padding: 10px;
     h1 {
         font-size: 22px;
     }
-}
-.ratings{
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    font-size: 14px;
-    color: gray;
-    margin: 5px 0px;
 }
 .extraDetails{
     margin: 10px 0px;
@@ -36,7 +28,7 @@
     line-height: 1.4;
     font-weight: 300;
 }
-.overview{
+.biography{
     font-size: 16px;
 }
 .button{
@@ -53,29 +45,17 @@
         background-color: colors.$hover;
     }
 }
-
 .main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
     justify-content: center;
 }
-.tabs{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 5px;
-    margin: 25px 5px;
-}
-.tab{
-    font-weight: 400;
-    padding: 10px;
-    font-size: 16px;
-    width: 150px;
+.creditsHeading{
+    font-size: 25px;
     text-align: center;
-    box-shadow: 2px 2px 2px colors.$shadow-light;
+    font-weight: 500;
+    margin-top: 25px;
+    margin-bottom: 10px;
 }
-
 .content{
     padding: 0px 25px;
     margin-bottom: 50px;
@@ -91,8 +71,10 @@
     }
 }
 @media screen and (max-width: 850px) {
+    .main{
+        padding: 30px 0px;
+    }
     .content{
-        padding: 50px 10px;
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -103,11 +85,7 @@
         flex-direction: column;
         align-items: center;
     }
-    .tab{
-        width: fit-content;
-    }
     .content{
-        padding: 50px 0px;
         grid-template-columns: 1fr;
     }
 }
