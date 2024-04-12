@@ -116,13 +116,13 @@ const MovieDetails = ({ params }: { params: { id: string } }) => {
 
 				<section className={styles.content}>
 					{selectedTab === "cast" &&
-						extraDetails.map((person: personCardProps) => (
-							<PersonCard key={person.id} person={person} />
+						extraDetails.map((person: personCardProps, index) => (
+							<PersonCard key={`person-${person.id}`} person={person} />
 						))}
 
 					{selectedTab === "similar" &&
 						extraDetails.map((movie: movieCardProps) => (
-							<MovieCard key={movie.id} movie={movie} />
+							<MovieCard key={`movie-${movie.id}`} movie={movie} />
 						))}
 				</section>
 			</main>

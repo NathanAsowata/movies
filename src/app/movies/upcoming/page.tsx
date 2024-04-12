@@ -25,7 +25,7 @@ const UpcomingMovies = () => {
 			</header>
 			<main className={styles.content}>
 				{movies &&
-					movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
+					movies.map((movie) => <MovieCard key={`movie-${movie.id}`} movie={movie} />)}
 			</main>
 		</div>
 	);

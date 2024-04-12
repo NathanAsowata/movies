@@ -123,12 +123,12 @@ const TVDetails = ({ params }: { params: { id: string } }) => {
 				<section className={styles.content}>
 					{selectedTab === "cast" &&
 						extraDetails.map((person: personCardProps) => (
-							<PersonCard key={person.id} person={person} />
+							<PersonCard key={`person-${person.id}`} person={person} />
 						))}
 
 					{selectedTab === "similar" &&
 						extraDetails.map((tv: tvCardProps) => (
-							<TvCard key={tv.id} tv={tv} />
+							<TvCard key={`tv-${tv.id}`} tv={tv} />
 						))}
 				</section>
 			</main>

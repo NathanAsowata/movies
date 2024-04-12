@@ -65,11 +65,11 @@ const Search = () => {
 						searchResults.map((item) => {
 							switch (item.media_type) {
 								case "movie":
-									return <MovieCard key={item.id} movie={item} />;
+									return <MovieCard key={`movie-${item.id}`} movie={item} />;
 								case "tv":
-									return <TvCard key={item.id} tv={item} />;
+									return <TvCard key={`tv-${item.id}`} tv={item} />;
 								case "person":
-									return <PersonCard key={item.id} person={item} />;
+									return <PersonCard key={`person-${item.id}`} person={item} />;
 								default:
 									return null;
 							}

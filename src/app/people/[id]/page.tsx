@@ -72,9 +72,9 @@ const PersonDetails = ({ params }: { params: { id: string } }) => {
 						personDetails.combined_credits.cast.map((item) => {
 							switch (item.media_type) {
 								case "movie":
-									return <MovieCard key={item.id} movie={item} />;
+									return <MovieCard key={`movie-${item.id}`} movie={item} />;
 								case "tv":
-									return <TvCard key={item.id} tv={item} />;
+									return <TvCard key={`tv-${item.id}`} tv={item} />;
 								default:
 									return null;
 							}
