@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import styles from "./page.module.scss";
 import {
 	movieCardProps,
@@ -12,6 +12,7 @@ import Ratings from "@/components/Ratings";
 import PersonCard from "@/components/PersonCard";
 import MovieCard from "@/components/MovieCard";
 import { formatDate, formatRuntime } from "@/utils/functions";
+import LoadingSkeleton from "@/components/LoadingSkeleton";
 
 const MovieDetails = ({ params }: { params: { id: string } }) => {
 	const [movieDetails, setMovieDetails] = useState<movieDetailsType>();
@@ -114,17 +115,22 @@ const MovieDetails = ({ params }: { params: { id: string } }) => {
 					</h3>
 				</section>
 
-				<section className={styles.content}>
-					{selectedTab === "cast" &&
-						extraDetails.map((person: personCardProps, index) => (
-							<PersonCard key={`person-${person.id}`} person={person} />
-						))}
+				<Suspense fallback={<LoadingSkeleton />}>
+					<section className={styles.content}>
+						{selectedTab === "cast" &&
+							extraDetails.map((person: personCardProps, index) => (
+								<PersonCard
+									key={`person-${person.id + index}`}
+									person={person}
+								/>
+							))}
 
-					{selectedTab === "similar" &&
-						extraDetails.map((movie: movieCardProps) => (
-							<MovieCard key={`movie-${movie.id}`} movie={movie} />
-						))}
-				</section>
+						{selectedTab === "similar" &&
+							extraDetails.map((movie: movieCardProps, index) => (
+								<MovieCard key={`movie-${movie.id + index}`} movie={movie} />
+							))}
+					</section>
+				</Suspense>
 			</main>
 		</>
 	);

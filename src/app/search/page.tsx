@@ -3,12 +3,13 @@
 import SearchBar from "@/components/SearchBar";
 import styles from "./page.module.scss";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import MovieCard from "@/components/MovieCard";
 import { searchResultType } from "@/utils/types";
 import TvCard from "@/components/TvCard";
 import PersonCard from "@/components/PersonCard";
 import NoContent from "@/components/NoContent";
+import LoadingSkeleton from "@/components/LoadingSkeleton";
 
 const Search = () => {
 	const [searchResults, setSearchResults] = useState<searchResultType[]>([]);
@@ -60,21 +61,33 @@ const Search = () => {
 					<NoContent message="No results for this search. Try something else." />
 				)}
 
-				<section className={styles.searchResults}>
-					{searchResults &&
-						searchResults.map((item) => {
-							switch (item.media_type) {
-								case "movie":
-									return <MovieCard key={`movie-${item.id}`} movie={item} />;
-								case "tv":
-									return <TvCard key={`tv-${item.id}`} tv={item} />;
-								case "person":
-									return <PersonCard key={`person-${item.id}`} person={item} />;
-								default:
-									return null;
-							}
-						})}
-				</section>
+				<Suspense fallback={<LoadingSkeleton />}>
+					<section className={styles.searchResults}>
+						{searchResults &&
+							searchResults.map((item, index) => {
+								switch (item.media_type) {
+									case "movie":
+										return (
+											<MovieCard
+												key={`movie-${item.id + index}`}
+												movie={item}
+											/>
+										);
+									case "tv":
+										return <TvCard key={`tv-${item.id + index}`} tv={item} />;
+									case "person":
+										return (
+											<PersonCard
+												key={`person-${item.id + index}`}
+												person={item}
+											/>
+										);
+									default:
+										return null;
+								}
+							})}
+					</section>
+				</Suspense>
 			</main>
 		</>
 	);

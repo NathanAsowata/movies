@@ -20,4 +20,3 @@ export function getAge(dateString: string, deathday?: string) {
 	);
 	return age;
 }
- 

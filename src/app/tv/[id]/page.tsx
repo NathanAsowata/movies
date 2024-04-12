@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import styles from "./page.module.scss";
 import { personCardProps, tvCardProps, tvDetailsType } from "@/utils/types";
 import Image from "next/image";
@@ -8,6 +8,7 @@ import Ratings from "@/components/Ratings";
 import PersonCard from "@/components/PersonCard";
 import TvCard from "@/components/TvCard";
 import { formatDate } from "@/utils/functions";
+import LoadingSkeleton from "@/components/LoadingSkeleton";
 
 const TVDetails = ({ params }: { params: { id: string } }) => {
 	const [tvDetails, setTVDetails] = useState<tvDetailsType>();
@@ -120,17 +121,22 @@ const TVDetails = ({ params }: { params: { id: string } }) => {
 					</h3>
 				</section>
 
-				<section className={styles.content}>
-					{selectedTab === "cast" &&
-						extraDetails.map((person: personCardProps) => (
-							<PersonCard key={`person-${person.id}`} person={person} />
-						))}
+				<Suspense fallback={<LoadingSkeleton />}>
+					<section className={styles.content}>
+						{selectedTab === "cast" &&
+							extraDetails.map((person: personCardProps, index) => (
+								<PersonCard
+									key={`person-${person.id + index}`}
+									person={person}
+								/>
+							))}
 
-					{selectedTab === "similar" &&
-						extraDetails.map((tv: tvCardProps) => (
-							<TvCard key={`tv-${tv.id}`} tv={tv} />
-						))}
-				</section>
+						{selectedTab === "similar" &&
+							extraDetails.map((tv: tvCardProps, index) => (
+								<TvCard key={`tv-${tv.id + index}`} tv={tv} />
+							))}
+					</section>
+				</Suspense>
 			</main>
 		</>
 	);
