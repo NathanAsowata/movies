@@ -74,7 +74,9 @@ const Search = () => {
 											/>
 										);
 									case "tv":
-										return <TvCard key={`tv-${item.id}-index-${index}`} tv={item} />;
+										return (
+											<TvCard key={`tv-${item.id}-index-${index}`} tv={item} />
+										);
 									case "person":
 										return (
 											<PersonCard

@@ -116,13 +116,11 @@ const MovieDetails = ({ params }: { params: { id: string } }) => {
 					</h3>
 				</section>
 
-				{selectedTab === "cast" || "similar" && extraDetails.length === 0 && (
-					<NoContent message="No data available" />
-				)}
-
 				<Suspense fallback={<LoadingSkeleton />}>
+					{extraDetails.length === 0 && (
+						<NoContent message="No data available" />
+					)}
 					<section className={styles.content}>
-						
 						{selectedTab === "cast" &&
 							extraDetails.map((person: personCardProps, index) => (
 								<PersonCard
@@ -133,7 +131,10 @@ const MovieDetails = ({ params }: { params: { id: string } }) => {
 
 						{selectedTab === "similar" &&
 							extraDetails.map((movie: movieCardProps, index) => (
-								<MovieCard key={`movie-${movie.id}-index-${index}`} movie={movie} />
+								<MovieCard
+									key={`movie-${movie.id}-index-${index}`}
+									movie={movie}
+								/>
 							))}
 					</section>
 				</Suspense>

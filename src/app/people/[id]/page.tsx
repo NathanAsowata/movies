@@ -79,10 +79,15 @@ const PersonDetails = ({ params }: { params: { id: string } }) => {
 							switch (item.media_type) {
 								case "movie":
 									return (
-										<MovieCard key={`movie-${item.id}-index-${index}`} movie={item} />
+										<MovieCard
+											key={`movie-${item.id}-index-${index}`}
+											movie={item}
+										/>
 									);
 								case "tv":
-									return <TvCard key={`tv-${item.id}-index-${index}`} tv={item} />;
+									return (
+										<TvCard key={`tv-${item.id}-index-${index}`} tv={item} />
+									);
 								default:
 									return null;
 							}
