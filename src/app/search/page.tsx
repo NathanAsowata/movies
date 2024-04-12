@@ -69,16 +69,16 @@ const Search = () => {
 									case "movie":
 										return (
 											<MovieCard
-												key={`movie-${item.id + index}`}
+												key={`movie-${item.id}-index-${index}`}
 												movie={item}
 											/>
 										);
 									case "tv":
-										return <TvCard key={`tv-${item.id + index}`} tv={item} />;
+										return <TvCard key={`tv-${item.id}-index-${index}`} tv={item} />;
 									case "person":
 										return (
 											<PersonCard
-												key={`person-${item.id + index}`}
+												key={`person-${item.id}-index-${index}`}
 												person={item}
 											/>
 										);

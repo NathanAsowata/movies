@@ -26,7 +26,7 @@ const UpcomingTVShows = () => {
 			<main className={styles.content}>
 				{tvShows &&
 					tvShows.map((tv, index) => (
-						<TvCard key={`tv-${tv.id + index}`} tv={tv} />
+						<TvCard key={`tv-${tv.id}-index-${index}`} tv={tv} />
 					))}
 			</main>
 		</div>

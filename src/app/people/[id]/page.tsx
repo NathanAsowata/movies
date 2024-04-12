@@ -7,6 +7,7 @@ import { personDetailsType } from "@/utils/types";
 import { getAge, formatDate } from "@/utils/functions";
 import MovieCard from "@/components/MovieCard";
 import TvCard from "@/components/TvCard";
+import NoContent from "@/components/NoContent";
 
 const PersonDetails = ({ params }: { params: { id: string } }) => {
 	const [personDetails, setPersonDetails] = useState<personDetailsType>();
@@ -67,16 +68,21 @@ const PersonDetails = ({ params }: { params: { id: string } }) => {
 			</header>
 			<main className={styles.main}>
 				<h1 className={styles.creditsHeading}>Movies and TV Credits</h1>
+
+				{personDetails?.combined_credits.cast.length === 0 && (
+					<NoContent message="No data available" />
+				)}
+
 				<section className={styles.content}>
 					{personDetails &&
 						personDetails.combined_credits.cast.map((item, index) => {
 							switch (item.media_type) {
 								case "movie":
 									return (
-										<MovieCard key={`movie-${item.id + index}`} movie={item} />
+										<MovieCard key={`movie-${item.id}-index-${index}`} movie={item} />
 									);
 								case "tv":
-									return <TvCard key={`tv-${item.id + index}`} tv={item} />;
+									return <TvCard key={`tv-${item.id}-index-${index}`} tv={item} />;
 								default:
 									return null;
 							}

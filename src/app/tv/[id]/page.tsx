@@ -9,6 +9,7 @@ import PersonCard from "@/components/PersonCard";
 import TvCard from "@/components/TvCard";
 import { formatDate } from "@/utils/functions";
 import LoadingSkeleton from "@/components/LoadingSkeleton";
+import NoContent from "@/components/NoContent";
 
 const TVDetails = ({ params }: { params: { id: string } }) => {
 	const [tvDetails, setTVDetails] = useState<tvDetailsType>();
@@ -121,19 +122,23 @@ const TVDetails = ({ params }: { params: { id: string } }) => {
 					</h3>
 				</section>
 
+				{selectedTab === "cast" || "similar" && extraDetails.length === 0 && (
+					<NoContent message="No data available" />
+				)}
+
 				<Suspense fallback={<LoadingSkeleton />}>
 					<section className={styles.content}>
 						{selectedTab === "cast" &&
 							extraDetails.map((person: personCardProps, index) => (
 								<PersonCard
-									key={`person-${person.id + index}`}
+									key={`person-${person.id}-index-${index}`}
 									person={person}
 								/>
 							))}
 
 						{selectedTab === "similar" &&
 							extraDetails.map((tv: tvCardProps, index) => (
-								<TvCard key={`tv-${tv.id + index}`} tv={tv} />
+								<TvCard key={`tv-${tv.id}-index-${index}`} tv={tv} />
 							))}
 					</section>
 				</Suspense>

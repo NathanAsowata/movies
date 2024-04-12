@@ -13,6 +13,7 @@ import PersonCard from "@/components/PersonCard";
 import MovieCard from "@/components/MovieCard";
 import { formatDate, formatRuntime } from "@/utils/functions";
 import LoadingSkeleton from "@/components/LoadingSkeleton";
+import NoContent from "@/components/NoContent";
 
 const MovieDetails = ({ params }: { params: { id: string } }) => {
 	const [movieDetails, setMovieDetails] = useState<movieDetailsType>();
@@ -115,19 +116,24 @@ const MovieDetails = ({ params }: { params: { id: string } }) => {
 					</h3>
 				</section>
 
+				{selectedTab === "cast" || "similar" && extraDetails.length === 0 && (
+					<NoContent message="No data available" />
+				)}
+
 				<Suspense fallback={<LoadingSkeleton />}>
 					<section className={styles.content}>
+						
 						{selectedTab === "cast" &&
 							extraDetails.map((person: personCardProps, index) => (
 								<PersonCard
-									key={`person-${person.id + index}`}
+									key={`person-${person.id}-index-${index}`}
 									person={person}
 								/>
 							))}
 
 						{selectedTab === "similar" &&
 							extraDetails.map((movie: movieCardProps, index) => (
-								<MovieCard key={`movie-${movie.id + index}`} movie={movie} />
+								<MovieCard key={`movie-${movie.id}-index-${index}`} movie={movie} />
 							))}
 					</section>
 				</Suspense>
