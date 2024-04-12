@@ -9,79 +9,80 @@ import MovieCard from "@/components/MovieCard";
 import TvCard from "@/components/TvCard";
 
 const PersonDetails = ({ params }: { params: { id: string } }) => {
-  const [personDetails, setPersonDetails] = useState<personDetailsType>();
+	const [personDetails, setPersonDetails] = useState<personDetailsType>();
 
-  const personID = params.id;
+	const personID = params.id;
 
-  async function getpersonDetails() {
-    const res = await fetch(`/api/people/${personID}`);
-    const data = await res.json();
-    setPersonDetails(data);
-  }
+	async function getpersonDetails() {
+		const res = await fetch(`/api/people/${personID}`);
+		const data = await res.json();
+		setPersonDetails(data);
+	}
 
-  useEffect(() => {
-    getpersonDetails();
-  }, []);
+	useEffect(() => {
+		getpersonDetails();
+	}, []);
 
-  return (
-    <>
-      <header className={styles.header}>
-        {personDetails && (
-          <div className={styles.details}>
-            <Image
-              src={`https://image.tmdb.org/t/p/original${personDetails.profile_path}`}
-              alt={personDetails.name}
-              width={250}
-              height={375}
-              className={styles.poster}
-            />
-            <div className={styles.summary}>
-              <h1>{personDetails.name}</h1>
+	return (
+		<>
+			<header className={styles.header}>
+				{personDetails && (
+					<div className={styles.details}>
+						<Image
+							src={`https://image.tmdb.org/t/p/original${personDetails.profile_path}`}
+							alt={personDetails.name}
+							width={250}
+							height={375}
+							className={styles.poster}
+						/>
+						<div className={styles.summary}>
+							<h1>{personDetails.name}</h1>
 
-              <div className={styles.extraDetails}>
-                {personDetails.deathday ? (
-                  <p>{`${formatDate(personDetails.birthday)} - ${formatDate(
-                    personDetails.deathday
-                  )} (age ${getAge(
-                    personDetails.birthday,
-                    personDetails.deathday
-                  )} years)`}</p>
-                ) : (
-                  <p>{`${formatDate(personDetails.birthday)} (age ${getAge(
-                    personDetails.birthday
-                  )} years)`}</p>
-                )}
-              </div>
+							<div className={styles.extraDetails}>
+								{personDetails.deathday ? (
+									<p>{`${formatDate(personDetails.birthday)} - ${formatDate(
+										personDetails.deathday,
+									)} (age ${getAge(
+										personDetails.birthday,
+										personDetails.deathday,
+									)} years)`}</p>
+								) : (
+									<p>{`${formatDate(personDetails.birthday)} (age ${getAge(
+										personDetails.birthday,
+									)} years)`}</p>
+								)}
+							</div>
 
-              <p className={styles.biography}>
-                {personDetails.biography.split("\n").map((line, index) => (
-                  <React.Fragment key={index}>
-                    {line}
-                    <br />
-                  </React.Fragment>
-                ))}
-              </p>
-            </div>
-          </div>
-        )}
-      </header>
-      <main className={styles.main}>
-        <h1 className={styles.creditsHeading}>Movies and TV Credits</h1>
-        <section className={styles.content}>
-        {personDetails && (personDetails.combined_credits.cast.map((item, index) => {
-          switch (item.media_type) {
-            case "movie":
-              return <MovieCard key={item.id + index} movie={item} />;
-              case "tv":
-                return <TvCard key={item.id + index} tv={item} />;
-                default:
-                  return null;
-                }
-          }))}
-        </section>
-      </main>
-    </>
-  );
+							<p className={styles.biography}>
+								{personDetails.biography.split("\n").map((line, index) => (
+									<React.Fragment key={index}>
+										{line}
+										<br />
+									</React.Fragment>
+								))}
+							</p>
+						</div>
+					</div>
+				)}
+			</header>
+			<main className={styles.main}>
+				<h1 className={styles.creditsHeading}>Movies and TV Credits</h1>
+				<section className={styles.content}>
+					{personDetails &&
+						personDetails.combined_credits.cast.map((item, index) => {
+							switch (item.media_type) {
+								case "movie":
+									return <MovieCard key={item.id + index} movie={item} />;
+								case "tv":
+									return <TvCard key={item.id + index} tv={item} />;
+								default:
+									return null;
+							}
+						})}
+				</section>
+			</main>
+		</>
+	);
 };
 
 export default PersonDetails;

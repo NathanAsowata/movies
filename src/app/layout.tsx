@@ -7,25 +7,22 @@ import NavBar from "@/components/NavBar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Movies",
-  description: "Movie aggregator search app",
+	title: "Movies",
+	description: "Movie aggregator search app",
 };
 
-
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body className={`${inter.className} container`}>
-        <NavBar />
-        <main className="main">
-          {children}
-        </main>
-        <Footer />
-      </body>
-    </html>
-  );
+	return (
+		<html lang="en">
+			<body className={`${inter.className} container`}>
+				<NavBar />
+				<main className="main">{children}</main>
+				<Footer />
+			</body>
+		</html>
+	);
 }

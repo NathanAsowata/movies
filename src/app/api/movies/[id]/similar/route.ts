@@ -1,23 +1,23 @@
 import { NextRequest, NextResponse } from "next/server";
 
+export async function GET(
+	request: Request,
+	{ params }: { params: { id: string } },
+) {
+	// Get movie ID
+	const movieID = params.id;
 
-export async function GET ( request: Request, { params }: { params: { id: string } }) {
+	const url = `https://api.themoviedb.org/3/movie/${movieID}/recommendations`;
 
-    // Get movie ID
-    const movieID = params.id
+	const similar = await fetch(url, {
+		method: "GET",
+		headers: {
+			Accept: "application/json",
+			Authorization: `Bearer ${process.env.API_KEY}`,
+		},
+	});
 
-    
-    const url = `https://api.themoviedb.org/3/movie/${movieID}/recommendations`
-    
-    const similar = await fetch(url, {
-        method: "GET",
-        headers: {
-            Accept: 'application/json',
-            Authorization: `Bearer ${process.env.API_KEY}`
-        }
-    })
+	const data = await similar.json();
 
-    const data = await similar.json()
-
-    return NextResponse.json(data.results)
+	return NextResponse.json(data.results);
 }
