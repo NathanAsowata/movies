@@ -16,10 +16,10 @@ const Search = () => {
 	const [noResult, setNoResult] = useState(false);
 
 	const parameters = useSearchParams();
-	const userInput = parameters.get("q") || " ";
+	const userInput = parameters.get("q") || "";
 
 	async function getSearchResults(query: string) {
-		if (query === " ") {
+		if (query === "") {
 			setIsEmpty(true);
 			setSearchResults([]);
 			setNoResult(false);

@@ -7,6 +7,7 @@ import Image from "next/image";
 import Ratings from "@/components/Ratings";
 import PersonCard from "@/components/PersonCard";
 import TvCard from "@/components/TvCard";
+import { formatDate } from "@/utils/functions";
 
 const TVDetails = ({ params }: { params: { id: string } }) => {
 	const [tvDetails, setTVDetails] = useState<tvDetailsType>();
@@ -40,15 +41,6 @@ const TVDetails = ({ params }: { params: { id: string } }) => {
 			color: activeTab === tabNumber ? "white" : "black",
 			backgroundColor: activeTab === tabNumber ? "#2118FF" : "#E5E8FF",
 		};
-	}
-
-	function formatDate(dateString: string) {
-		const options: Intl.DateTimeFormatOptions = {
-			year: "numeric",
-			month: "long",
-			day: "numeric",
-		};
-		return new Date(dateString).toLocaleDateString("en-US", options);
 	}
 
 	useEffect(() => {

@@ -69,12 +69,12 @@ const PersonDetails = ({ params }: { params: { id: string } }) => {
 				<h1 className={styles.creditsHeading}>Movies and TV Credits</h1>
 				<section className={styles.content}>
 					{personDetails &&
-						personDetails.combined_credits.cast.map((item, index) => {
+						personDetails.combined_credits.cast.map((item) => {
 							switch (item.media_type) {
 								case "movie":
-									return <MovieCard key={item.id + index} movie={item} />;
+									return <MovieCard key={item.id} movie={item} />;
 								case "tv":
-									return <TvCard key={item.id + index} tv={item} />;
+									return <TvCard key={item.id} tv={item} />;
 								default:
 									return null;
 							}

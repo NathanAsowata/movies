@@ -1,3 +1,9 @@
+export function formatRuntime(runtime: number) {
+	const hours = Math.floor(runtime / 60);
+	const minutes = runtime % 60;
+	const formattedRuntime = `${hours}h ${minutes}mins`;
+	return formattedRuntime;
+}
 export function formatDate(dateString: string) {
 	const options: Intl.DateTimeFormatOptions = {
 		year: "numeric",
@@ -14,3 +20,4 @@ export function getAge(dateString: string, deathday?: string) {
 	);
 	return age;
 }
+ 

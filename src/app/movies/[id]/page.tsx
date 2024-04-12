@@ -9,10 +9,9 @@ import {
 } from "@/utils/types";
 import Image from "next/image";
 import Ratings from "@/components/Ratings";
-import Link from "next/link";
 import PersonCard from "@/components/PersonCard";
 import MovieCard from "@/components/MovieCard";
-import { formatDate } from "@/utils/functions";
+import { formatDate, formatRuntime } from "@/utils/functions";
 
 const MovieDetails = ({ params }: { params: { id: string } }) => {
 	const [movieDetails, setMovieDetails] = useState<movieDetailsType>();
@@ -46,13 +45,6 @@ const MovieDetails = ({ params }: { params: { id: string } }) => {
 			color: activeTab === tabNumber ? "white" : "black",
 			backgroundColor: activeTab === tabNumber ? "#2118FF" : "#E5E8FF",
 		};
-	}
-
-	function formatRuntime(runtime: number) {
-		const hours = Math.floor(runtime / 60);
-		const minutes = runtime % 60;
-		const formattedRuntime = `${hours}h ${minutes}mins`;
-		return formattedRuntime;
 	}
 
 	useEffect(() => {
