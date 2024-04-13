@@ -21,6 +21,11 @@ const Card = ({ link, img_url, name, isPerson, additonalInfo }: cardProp) => {
 		image = "/fallback.png";
 	}
 
+	// Skip non existent movies, tv shows and people 
+	if(additonalInfo === undefined){
+		return null
+	}
+
 	return (
 		<div className={styles.card}>
 			<Link href={link}>
