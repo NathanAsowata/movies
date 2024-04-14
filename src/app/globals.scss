@@ -1,3 +1,5 @@
+@use"./colors.scss";
+
 *{
   box-sizing: border-box;
   padding: 0;
@@ -15,4 +17,38 @@ a{
 }
 .main{
   flex-grow: 1;
+}
+.error{
+  display: grid;
+  place-content: center;
+}
+.buttonSpan{
+  width: 350px;
+  display: grid;
+  justify-content: space-between;
+}
+.resetButton{
+  background-color: colors.$primary;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 7px;
+  box-shadow: 1px 1px 2px colors.$shadow-light;
+
+  &:hover{
+    background-color: colors.$hover;
+  }
+}
+.backButton{
+  background-color: white;
+  color: colors.$primary;
+  padding: 10px 15px;
+  border: 1px solid colors.$primary;
+  border-radius: 7px;
+  box-shadow: 1px 1px 2px colors.$shadow-light;
+
+  &:hover{
+    background-color: colors.$hover;
+    color: white;
+  }
 }

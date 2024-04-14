@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./page.module.scss";
 import { personDetailsType } from "@/utils/types";
@@ -8,6 +8,7 @@ import { getAge, formatDate } from "@/utils/functions";
 import MovieCard from "@/components/MovieCard";
 import TvCard from "@/components/TvCard";
 import NoContent from "@/components/NoContent";
+import LoadingSkeleton from "@/components/LoadingSkeleton";
 
 const PersonDetails = ({ params }: { params: { id: string } }) => {
 	const [personDetails, setPersonDetails] = useState<personDetailsType>();
@@ -73,26 +74,28 @@ const PersonDetails = ({ params }: { params: { id: string } }) => {
 					<NoContent message="No data available" />
 				)}
 
-				<section className={styles.content}>
-					{personDetails &&
-						personDetails.combined_credits.cast.map((item, index) => {
-							switch (item.media_type) {
-								case "movie":
-									return (
-										<MovieCard
-											key={`movie-${item.id}-index-${index}`}
-											movie={item}
-										/>
-									);
-								case "tv":
-									return (
-										<TvCard key={`tv-${item.id}-index-${index}`} tv={item} />
-									);
-								default:
-									return null;
-							}
-						})}
-				</section>
+				<Suspense fallback={<LoadingSkeleton />}>
+					<section className={styles.content}>
+						{personDetails &&
+							personDetails.combined_credits.cast.map((item, index) => {
+								switch (item.media_type) {
+									case "movie":
+										return (
+											<MovieCard
+												key={`movie-${item.id}-index-${index}`}
+												movie={item}
+											/>
+										);
+									case "tv":
+										return (
+											<TvCard key={`tv-${item.id}-index-${index}`} tv={item} />
+										);
+									default:
+										return null;
+								}
+							})}
+					</section>
+				</Suspense>
 			</main>
 		</>
 	);

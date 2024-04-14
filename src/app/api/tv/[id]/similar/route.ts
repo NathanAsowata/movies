@@ -9,15 +9,19 @@ export async function GET(
 
 	const url = `https://api.themoviedb.org/3/tv/${tvID}/recommendations`;
 
-	const similar = await fetch(url, {
-		method: "GET",
-		headers: {
-			Accept: "application/json",
-			Authorization: `Bearer ${process.env.API_KEY}`,
-		},
-	});
+	try{
+		const similar = await fetch(url, {
+			method: "GET",
+			headers: {
+				Accept: "application/json",
+				Authorization: `Bearer ${process.env.API_KEY}`,
+			},
+		});
 
-	const data = await similar.json();
-
-	return NextResponse.json(data.results);
+		const data = await similar.json();
+		return NextResponse.json(data.results);
+	} catch (error) {
+		console.error(error)
+		throw new Error()
+	}
 }

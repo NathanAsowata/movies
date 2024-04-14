@@ -9,15 +9,19 @@ export async function GET(
 
 	const url = `https://api.themoviedb.org/3/tv/${tvID}`;
 
-	const details = await fetch(url, {
-		method: "GET",
-		headers: {
-			Accept: "application/json",
-			Authorization: `Bearer ${process.env.API_KEY}`,
-		},
-	});
+	try{
+		const details = await fetch(url, {
+			method: "GET",
+			headers: {
+				Accept: "application/json",
+				Authorization: `Bearer ${process.env.API_KEY}`,
+			},
+		});
 
-	const data = await details.json();
-
-	return NextResponse.json(data);
+		const data = await details.json();
+		return NextResponse.json(data);
+	} catch (error) {
+		console.error(error)
+		throw new Error()
+	}
 }

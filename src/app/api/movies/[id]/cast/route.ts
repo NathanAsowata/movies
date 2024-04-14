@@ -9,15 +9,20 @@ export async function GET(
 
 	const url = `https://api.themoviedb.org/3/movie/${movieID}/credits`;
 
-	const cast = await fetch(url, {
-		method: "GET",
-		headers: {
-			Accept: "application/json",
-			Authorization: `Bearer ${process.env.API_KEY}`,
-		},
-	});
+	try{
+		const cast = await fetch(url, {
+			method: "GET",
+			headers: {
+				Accept: "application/json",
+				Authorization: `Bearer ${process.env.API_KEY}`,
+			},
+		});
 
-	const data = await cast.json();
+		const data = await cast.json();
+		return NextResponse.json(data.cast);
 
-	return NextResponse.json(data.cast);
+	} catch (error) {
+		console.error(error)
+		throw new Error()
+	}
 }

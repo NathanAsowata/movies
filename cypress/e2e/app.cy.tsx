@@ -40,30 +40,28 @@ describe("Navigation", () => {
 	});
 });
 
+describe("Trending Movies, TV Shows and People", () => {
+	it("should have trending movies", () => {
+		cy.visit("http://localhost:3000");
 
-describe('Trending Movies, TV Shows and People', () => { 
-	it('should have trending movies', () => { 
-		cy.visit("http://localhost:3000")
+		cy.get("h3").contains("Movies");
 
-		cy.get('h3').contains('Movies')
+		cy.get("div").find("h5").first().click();
+	});
 
-		cy.get('div').find('h5').first().click()
-	 })
+	it("should have trending tv shows", () => {
+		cy.visit("http://localhost:3000");
 
+		cy.get("h3").contains("TV Shows").click();
 
-	 it('should have trending tv shows', () => { 
-		cy.visit("http://localhost:3000")
+		cy.get("div").find("h5").first().click();
+	});
 
-		cy.get('h3').contains('TV Shows').click()
+	it("should have popular people", () => {
+		cy.visit("http://localhost:3000");
 
-		cy.get('div').find('h5').first().click()
-	  })
+		cy.get("h3").contains("People").click();
 
-	  it('should have popular people', () => { 
-		cy.visit("http://localhost:3000")
-
-		cy.get('h3').contains('People').click()
-
-		cy.get('div').find('h5').first().click()
-	   })
- })
+		cy.get("div").find("h5").first().click();
+	});
+});

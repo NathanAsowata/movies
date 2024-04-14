@@ -23,59 +23,56 @@ describe("Search Bar", () => {
 
 describe("Search Page", () => {
 	it("should have a message when search page is empty", () => {
-		
-        cy.visit("http://localhost:3000/search");
-		
-        cy.get("div").contains("Try typing");
+		cy.visit("http://localhost:3000/search");
+
+		cy.get("div").contains("Try typing");
 	});
 
 	it("should allow users to find a movie", () => {
-		
-        cy.visit("http://localhost:3000/search");
-		
-        cy.get("div").contains("Try typing");
+		cy.visit("http://localhost:3000/search");
 
-        cy.get('input').type('Shawshank')
+		cy.get("div").contains("Try typing");
 
-        cy.get('button').click()
+		cy.get("input").type("Shawshank");
 
-        cy.get('div').contains('Shawshank Redemption').click()
+		cy.get("button").click();
 
+		cy.get("div").contains("Shawshank Redemption").click();
 	});
 
-    it('should allow users find a tv show', () => { 
-        cy.visit("http://localhost:3000/search");
-		
-        cy.get("div").contains("Try typing");
+	it("should allow users find a tv show", () => {
+		cy.visit("http://localhost:3000/search");
 
-        cy.get('input').type('Silicon')
+		cy.get("div").contains("Try typing");
 
-        cy.get('button').click()
+		cy.get("input").type("Silicon");
 
-        cy.get('div').contains('Silicon Valley').click()
-    })
+		cy.get("button").click();
 
-     it('should allow users find a person', () => { 
-        cy.visit("http://localhost:3000/search");
-		
-        cy.get("div").contains("Try typing");
+		cy.get("div").contains("Silicon Valley").click();
+	});
 
-        cy.get('input').type('Tobey')
+	it("should allow users find a person", () => {
+		cy.visit("http://localhost:3000/search");
 
-        cy.get('button').click()
+		cy.get("div").contains("Try typing");
 
-        cy.get('div').contains('Tobey Maguire').click()
-    })
+		cy.get("input").type("Tobey");
 
-    it('should handle "Results not found" properly', () => { 
-        cy.visit("http://localhost:3000/search");
-		
-        cy.get("div").contains("Try typing");
+		cy.get("button").click();
 
-        cy.get('input').type('Wedddddingg')
+		cy.get("div").contains("Tobey Maguire").click();
+	});
 
-        cy.get('button').click()
+	it('should handle "Results not found" properly', () => {
+		cy.visit("http://localhost:3000/search");
 
-        cy.get('div').contains('No results for this search')
-     })
+		cy.get("div").contains("Try typing");
+
+		cy.get("input").type("Wedddddingg");
+
+		cy.get("button").click();
+
+		cy.get("div").contains("No results for this search");
+	});
 });

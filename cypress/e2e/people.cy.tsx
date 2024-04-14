@@ -1,59 +1,59 @@
-describe('People page', () => { 
-    it('should allow users find a person', () => { 
-        cy.visit("http://localhost:3000/search");
-		
-        cy.get("div").contains("Try typing");
+describe("People page", () => {
+	it("should allow users find a person", () => {
+		cy.visit("http://localhost:3000/search");
 
-        cy.get('input').type('Tobey')
+		cy.get("div").contains("Try typing");
 
-        cy.get('button').click()
+		cy.get("input").type("Tobey");
 
-        cy.get('div').contains('Tobey Maguire').click()
-    })
+		cy.get("button").click();
 
-    it('should show the person&apos;s name', () => { 
-        it('should allow users find a person', () => { 
-            cy.visit("http://localhost:3000/search");
-            
-            cy.get("div").contains("Try typing");
-    
-            cy.get('input').type('Tobey')
-    
-            cy.get('button').click()
-    
-            cy.get('div').contains('Tobey Maguire').click()
+		cy.get("div").contains("Tobey Maguire").click();
+	});
 
-            cy.get('h1').contains('Tobey Maguire')
-        })
-     })
+	it("should show the person&apos;s name", () => {
+		it("should allow users find a person", () => {
+			cy.visit("http://localhost:3000/search");
 
-     it('should show correct age', () => { 
-        cy.visit("http://localhost:3000/search");
-		
-        cy.get("div").contains("Try typing");
+			cy.get("div").contains("Try typing");
 
-        cy.get('input').type('Tobey')
+			cy.get("input").type("Tobey");
 
-        cy.get('button').click()
+			cy.get("button").click();
 
-        cy.get('div').contains('Tobey Maguire').click()
+			cy.get("div").contains("Tobey Maguire").click();
 
-        cy.get('p').contains('age')
-    })
+			cy.get("h1").contains("Tobey Maguire");
+		});
+	});
 
-     it('should show movie and TV Credits', () => { 
-        cy.visit("http://localhost:3000/search");
-		
-        cy.get("div").contains("Try typing");
+	it("should show correct age", () => {
+		cy.visit("http://localhost:3000/search");
 
-        cy.get('input').type('Tobey')
+		cy.get("div").contains("Try typing");
 
-        cy.get('button').click()
+		cy.get("input").type("Tobey");
 
-        cy.get('div').contains('Tobey Maguire').click()
+		cy.get("button").click();
 
-        cy.get('h1').contains('Movies and TV')
+		cy.get("div").contains("Tobey Maguire").click();
 
-        cy.get('div').find('h5').first().click()
-    })
- })
+		cy.get("p").contains("age");
+	});
+
+	it("should show movie and TV Credits", () => {
+		cy.visit("http://localhost:3000/search");
+
+		cy.get("div").contains("Try typing");
+
+		cy.get("input").type("Tobey");
+
+		cy.get("button").click();
+
+		cy.get("div").contains("Tobey Maguire").click();
+
+		cy.get("h1").contains("Movies and TV");
+
+		cy.get("div").find("h5").first().click();
+	});
+});

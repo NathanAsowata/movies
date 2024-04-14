@@ -1,65 +1,61 @@
- describe('Movies Page', () => { 
-    it("should allow users to find a movie", () => {
-		
-        cy.visit("http://localhost:3000/search");
-		
-        cy.get("div").contains("Try typing");
+describe("Movies Page", () => {
+	it("should allow users to find a movie", () => {
+		cy.visit("http://localhost:3000/search");
 
-        cy.get('input').type('Shawshank')
+		cy.get("div").contains("Try typing");
 
-        cy.get('button').click()
+		cy.get("input").type("Shawshank");
 
-        cy.get('div').contains('Shawshank Redemption').click()
+		cy.get("button").click();
 
+		cy.get("div").contains("Shawshank Redemption").click();
 	});
 
-    it('should show movie cast', () => { 
-        cy.visit("http://localhost:3000/search");
-		
-        cy.get("div").contains("Try typing");
+	it("should show movie cast", () => {
+		cy.visit("http://localhost:3000/search");
 
-        cy.get('input').type('Shawshank')
+		cy.get("div").contains("Try typing");
 
-        cy.get('button').click()
+		cy.get("input").type("Shawshank");
 
-        cy.get('div').contains('Shawshank Redemption').click()
+		cy.get("button").click();
 
-        cy.get('h3').contains('Cast')
+		cy.get("div").contains("Shawshank Redemption").click();
 
-        cy.get('div').find('h5').first().click()
-    })
+		cy.get("h3").contains("Cast");
 
-    it('should show similar movies', () => { 
-        cy.visit("http://localhost:3000/search");
-		
-        cy.get("div").contains("Try typing");
+		cy.get("div").find("h5").first().click();
+	});
 
-        cy.get('input').type('Shawshank')
+	it("should show similar movies", () => {
+		cy.visit("http://localhost:3000/search");
 
-        cy.get('button').click()
+		cy.get("div").contains("Try typing");
 
-        cy.get('div').contains('Shawshank Redemption').click()
+		cy.get("input").type("Shawshank");
 
-        cy.get('h3').contains('Similar Movies').click()
+		cy.get("button").click();
 
-        cy.get('div').find('h5').first().click()
-    })
+		cy.get("div").contains("Shawshank Redemption").click();
 
+		cy.get("h3").contains("Similar Movies").click();
 
-    it('should have a message when there is no similar movie available', () => { 
-        cy.visit("http://localhost:3000/search");
-		
-        cy.get("div").contains("Try typing");
+		cy.get("div").find("h5").first().click();
+	});
 
-        cy.get('input').type('Jennifer did')
+	it("should have a message when there is no similar movie available", () => {
+		cy.visit("http://localhost:3000/search");
 
-        cy.get('button').click()
+		cy.get("div").contains("Try typing");
 
-        cy.get('div').contains('Jennifer Did').click()
+		cy.get("input").type("Jennifer did");
 
-        cy.get('h3').contains('Similar Movies').click()
+		cy.get("button").click();
 
-        cy.get('div').contains('No data available')
-    })
+		cy.get("div").contains("Jennifer Did").click();
 
-  })
+		cy.get("h3").contains("Similar Movies").click();
+
+		cy.get("div").contains("No data available");
+	});
+});

@@ -1,63 +1,61 @@
-describe('TV Shows Page', () => { 
-    it("should allow users to find a TV Show", () => {
-		
-        cy.visit("http://localhost:3000/search");
-		
-        cy.get("div").contains("Try typing");
+describe("TV Shows Page", () => {
+	it("should allow users to find a TV Show", () => {
+		cy.visit("http://localhost:3000/search");
 
-        cy.get('input').type('Silicon')
+		cy.get("div").contains("Try typing");
 
-        cy.get('button').click()
+		cy.get("input").type("Silicon");
 
-        cy.get('div').contains('Silicon Valley').click()
+		cy.get("button").click();
 
+		cy.get("div").contains("Silicon Valley").click();
 	});
 
-    it('should show the cast of a TV Show', () => { 
-        cy.visit("http://localhost:3000/search");
-		
-        cy.get("div").contains("Try typing");
+	it("should show the cast of a TV Show", () => {
+		cy.visit("http://localhost:3000/search");
 
-        cy.get('input').type('Silicon')
+		cy.get("div").contains("Try typing");
 
-        cy.get('button').click()
+		cy.get("input").type("Silicon");
 
-        cy.get('div').contains('Silicon Valley').click()
+		cy.get("button").click();
 
-        cy.get('h3').contains('Cast')
+		cy.get("div").contains("Silicon Valley").click();
 
-        cy.get('div').find('h5').first().click()
-    })
+		cy.get("h3").contains("Cast");
 
-    it('should show similar TV Shows', () => { 
-        cy.visit("http://localhost:3000/search");
-		
-        cy.get("div").contains("Try typing");
+		cy.get("div").find("h5").first().click();
+	});
 
-        cy.get('input').type('Silicon')
+	it("should show similar TV Shows", () => {
+		cy.visit("http://localhost:3000/search");
 
-        cy.get('button').click()
+		cy.get("div").contains("Try typing");
 
-        cy.get('div').contains('Silicon Valley').click()
+		cy.get("input").type("Silicon");
 
-        cy.get('h3').contains('Similar Shows').click()
+		cy.get("button").click();
 
-        cy.get('div').find('h5').first().click()
-    })
+		cy.get("div").contains("Silicon Valley").click();
 
-    it('should have a message when there is no cast available', () => { 
-        cy.visit("http://localhost:3000/search");
-		
-        cy.get("div").contains("Try typing");
+		cy.get("h3").contains("Similar Shows").click();
 
-        cy.get('input').type('Awards')
+		cy.get("div").find("h5").first().click();
+	});
 
-        cy.get('button').click()
+	it("should have a message when there is no cast available", () => {
+		cy.visit("http://localhost:3000/search");
 
-        cy.get('div').contains('Globe Awards').click()
+		cy.get("div").contains("Try typing");
 
-        cy.get('h3').contains('Cast')
+		cy.get("input").type("Awards");
 
-        cy.get('div').contains('No data available')
-    })
-  })
+		cy.get("button").click();
+
+		cy.get("div").contains("Globe Awards").click();
+
+		cy.get("h3").contains("Cast");
+
+		cy.get("div").contains("No data available");
+	});
+});
