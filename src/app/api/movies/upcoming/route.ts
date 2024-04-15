@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest, res: Response) {
-	const url = `https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1`;
+	const url = `https://api.themoviedb.org/3/movie/upcoming?include_adult=false&language=en-US&page=1`;
 
 	const upcoming = await fetch(url, {
 		method: "GET",

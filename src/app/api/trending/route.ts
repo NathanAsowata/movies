@@ -5,7 +5,7 @@ export async function GET(req: NextRequest, res: Response) {
 	const searchParameters = req.nextUrl.searchParams;
 	const searchQuery = searchParameters.get("type");
 
-	const url = `https://api.themoviedb.org/3/trending/${searchQuery}/day`;
+	const url = `https://api.themoviedb.org/3/trending/${searchQuery}/day?include_adult=false`;
 	try{
 		const trending = await fetch(url, {
 			method: "GET",

@@ -7,7 +7,7 @@ export async function GET(
 	// Get TV ID
 	const tvID = params.id;
 
-	const url = `https://api.themoviedb.org/3/tv/${tvID}/recommendations`;
+	const url = `https://api.themoviedb.org/3/tv/${tvID}/recommendations?include_adult=false`;
 
 	try{
 		const similar = await fetch(url, {
