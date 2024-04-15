@@ -11,7 +11,7 @@ import Image from "next/image";
 import Ratings from "@/components/Ratings";
 import PersonCard from "@/components/PersonCard";
 import MovieCard from "@/components/MovieCard";
-import { formatDate, formatRuntime } from "@/utils/functions";
+import { formatDate, formatRuntime, imageValidator } from "@/utils/functions";
 import LoadingSkeleton from "@/components/LoadingSkeleton";
 import NoContent from "@/components/NoContent";
 
@@ -60,7 +60,7 @@ const MovieDetails = ({ params }: { params: { id: string } }) => {
 				{movieDetails && (
 					<div className={styles.details}>
 						<Image
-							src={`https://image.tmdb.org/t/p/original${movieDetails.poster_path}`}
+							src={imageValidator(`https://image.tmdb.org/t/p/original${movieDetails.poster_path}`)}
 							alt={movieDetails.title}
 							width={250}
 							height={375}

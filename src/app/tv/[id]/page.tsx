@@ -7,7 +7,7 @@ import Image from "next/image";
 import Ratings from "@/components/Ratings";
 import PersonCard from "@/components/PersonCard";
 import TvCard from "@/components/TvCard";
-import { formatDate } from "@/utils/functions";
+import { formatDate, imageValidator } from "@/utils/functions";
 import LoadingSkeleton from "@/components/LoadingSkeleton";
 import NoContent from "@/components/NoContent";
 
@@ -56,7 +56,7 @@ const TVDetails = ({ params }: { params: { id: string } }) => {
 				{tvDetails && (
 					<div className={styles.details}>
 						<Image
-							src={`https://image.tmdb.org/t/p/original${tvDetails.poster_path}`}
+							src={imageValidator(`https://image.tmdb.org/t/p/original${tvDetails.poster_path}`)}
 							alt={tvDetails.name}
 							width={250}
 							height={375}

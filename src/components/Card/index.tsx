@@ -2,6 +2,7 @@ import Image from "next/image";
 import Ratings from "../Ratings";
 import Link from "next/link";
 import styles from "./style.module.scss";
+import { imageValidator } from "@/utils/functions";
 
 type cardProp = {
 	link: string;
@@ -12,14 +13,9 @@ type cardProp = {
 };
 
 const Card = ({ link, img_url, name, isPerson, additonalInfo }: cardProp) => {
-	let image = img_url;
 
-	if (
-		img_url === "https://image.tmdb.org/t/p/originalnull" ||
-		img_url === "https://image.tmdb.org/t/p/originalundefined&w=640&q=75"
-	) {
-		image = "/fallback.png";
-	}
+	// Use a fallback image if the image does not exist
+	const image = imageValidator(img_url)
 
 	// Skip non existent movies, tv shows and people
 	if (additonalInfo === undefined) {

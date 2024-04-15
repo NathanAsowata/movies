@@ -4,7 +4,7 @@ import React, { Suspense, useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./page.module.scss";
 import { personDetailsType } from "@/utils/types";
-import { getAge, formatDate } from "@/utils/functions";
+import { getAge, formatDate, imageValidator } from "@/utils/functions";
 import MovieCard from "@/components/MovieCard";
 import TvCard from "@/components/TvCard";
 import NoContent from "@/components/NoContent";
@@ -31,7 +31,7 @@ const PersonDetails = ({ params }: { params: { id: string } }) => {
 				{personDetails && (
 					<div className={styles.details}>
 						<Image
-							src={`https://image.tmdb.org/t/p/original${personDetails.profile_path}`}
+							src={imageValidator(`https://image.tmdb.org/t/p/original${personDetails.profile_path}`)}
 							alt={personDetails.name}
 							width={250}
 							height={375}
