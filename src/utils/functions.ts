@@ -21,14 +21,13 @@ export function getAge(dateString: string, deathday?: string) {
 	return age;
 }
 
-export function imageValidator (img_url:string) {
+export function imageValidator(img_url: string) {
 	if (
 		img_url === "https://image.tmdb.org/t/p/originalnull" ||
 		img_url === "https://image.tmdb.org/t/p/originalundefined&w=640&q=75"
 	) {
 		return "/fallback.png";
-	}
-	else {
-		return img_url
+	} else {
+		return img_url;
 	}
 }

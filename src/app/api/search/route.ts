@@ -18,7 +18,7 @@ export async function GET(req: NextRequest, res: Response) {
 		const data = await trending.json();
 		return NextResponse.json(data);
 	} catch (error) {
-		console.error(error)
-		throw new Error()
+		console.error(error);
+		throw new Error();
 	}
 }

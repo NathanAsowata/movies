@@ -21,7 +21,7 @@ export async function GET(
 		const data = await similar.json();
 		return NextResponse.json(data.results);
 	} catch (error) {
-		console.error(error)
-		throw new Error()
+		console.error(error);
+		throw new Error();
 	}
 }

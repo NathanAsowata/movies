@@ -20,7 +20,7 @@ export async function GET(
 		const data = await person.json();
 		return NextResponse.json(data);
 	} catch (error) {
-		console.error(error)
-		throw new Error()
+		console.error(error);
+		throw new Error();
 	}
 }

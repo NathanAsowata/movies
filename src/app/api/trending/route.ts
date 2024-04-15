@@ -6,7 +6,7 @@ export async function GET(req: NextRequest, res: Response) {
 	const searchQuery = searchParameters.get("type");
 
 	const url = `https://api.themoviedb.org/3/trending/${searchQuery}/day?include_adult=false`;
-	try{
+	try {
 		const trending = await fetch(url, {
 			method: "GET",
 			headers: {
@@ -18,7 +18,7 @@ export async function GET(req: NextRequest, res: Response) {
 		const data = await trending.json();
 		return NextResponse.json(data);
 	} catch (error) {
-		console.error(error)
-		throw new Error()
+		console.error(error);
+		throw new Error();
 	}
 }

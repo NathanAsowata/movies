@@ -31,7 +31,9 @@ const PersonDetails = ({ params }: { params: { id: string } }) => {
 				{personDetails && (
 					<div className={styles.details}>
 						<Image
-							src={imageValidator(`https://image.tmdb.org/t/p/original${personDetails.profile_path}`)}
+							src={imageValidator(
+								`https://image.tmdb.org/t/p/original${personDetails.profile_path}`,
+							)}
 							alt={personDetails.name}
 							width={250}
 							height={375}

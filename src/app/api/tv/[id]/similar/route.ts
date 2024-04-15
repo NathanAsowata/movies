@@ -9,7 +9,7 @@ export async function GET(
 
 	const url = `https://api.themoviedb.org/3/tv/${tvID}/recommendations?include_adult=false`;
 
-	try{
+	try {
 		const similar = await fetch(url, {
 			method: "GET",
 			headers: {
@@ -21,7 +21,7 @@ export async function GET(
 		const data = await similar.json();
 		return NextResponse.json(data.results);
 	} catch (error) {
-		console.error(error)
-		throw new Error()
+		console.error(error);
+		throw new Error();
 	}
 }

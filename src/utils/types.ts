@@ -1,3 +1,10 @@
+export type cardProp = {
+	link: string;
+	img_url: string;
+	name: string;
+	isPerson: boolean;
+	additonalInfo: number | string;
+};
 export type movieCardProps = {
 	id: number;
 	poster_path: string;

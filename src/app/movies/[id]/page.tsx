@@ -60,7 +60,9 @@ const MovieDetails = ({ params }: { params: { id: string } }) => {
 				{movieDetails && (
 					<div className={styles.details}>
 						<Image
-							src={imageValidator(`https://image.tmdb.org/t/p/original${movieDetails.poster_path}`)}
+							src={imageValidator(
+								`https://image.tmdb.org/t/p/original${movieDetails.poster_path}`,
+							)}
 							alt={movieDetails.title}
 							width={250}
 							height={375}

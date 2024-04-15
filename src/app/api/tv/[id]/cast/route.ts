@@ -9,7 +9,7 @@ export async function GET(
 
 	const url = `https://api.themoviedb.org/3/tv/${tvID}/credits`;
 
-	try{
+	try {
 		const cast = await fetch(url, {
 			method: "GET",
 			headers: {
@@ -21,7 +21,7 @@ export async function GET(
 		const data = await cast.json();
 		return NextResponse.json(data.cast);
 	} catch (error) {
-		console.error(error)
-		throw new Error()
+		console.error(error);
+		throw new Error();
 	}
 }

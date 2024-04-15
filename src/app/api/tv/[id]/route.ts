@@ -9,7 +9,7 @@ export async function GET(
 
 	const url = `https://api.themoviedb.org/3/tv/${tvID}`;
 
-	try{
+	try {
 		const details = await fetch(url, {
 			method: "GET",
 			headers: {
@@ -21,7 +21,7 @@ export async function GET(
 		const data = await details.json();
 		return NextResponse.json(data);
 	} catch (error) {
-		console.error(error)
-		throw new Error()
+		console.error(error);
+		throw new Error();
 	}
 }

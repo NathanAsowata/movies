@@ -3,19 +3,11 @@ import Ratings from "../Ratings";
 import Link from "next/link";
 import styles from "./style.module.scss";
 import { imageValidator } from "@/utils/functions";
-
-type cardProp = {
-	link: string;
-	img_url: string;
-	name: string;
-	isPerson: boolean;
-	additonalInfo: number | string;
-};
+import { cardProp } from "@/utils/types";
 
 const Card = ({ link, img_url, name, isPerson, additonalInfo }: cardProp) => {
-
 	// Use a fallback image if the image does not exist
-	const image = imageValidator(img_url)
+	const image = imageValidator(img_url);
 
 	// Skip non existent movies, tv shows and people
 	if (additonalInfo === undefined) {
