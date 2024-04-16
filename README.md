@@ -44,6 +44,6 @@ I am a frontend developer with a focus on React and it's ecosystem. This is a sh
 
 <hr>
 
-<<h3 align="center">
+<h3 align="center">
   <a href="https://movies.nathanasowata.com/">Visit the live app</a> 
 </h3>
