@@ -6,7 +6,7 @@ import { HiMenuAlt3 } from "react-icons/hi";
 import { useState } from "react";
 
 const NavBar = () => {
-	const [isOpen, setIsOpen] = useState(false); 
+	const [isOpen, setIsOpen] = useState(false);
 
 	return (
 		<nav className={styles.nav}>

@@ -5,8 +5,8 @@ const Footer = () => {
 	return (
 		<footer className={styles.footer}>
 			<p>
-				&copy; <span> {new Date().getFullYear()} </span>. All rights reserved. Designed and
-				built by&nbsp;
+				&copy; <span> {new Date().getFullYear()} </span>. All rights reserved.
+				Designed and built by&nbsp;
 				<Link href="https://www.nathanasowata.com/" target="_blank">
 					Nathan Asowata
 				</Link>
