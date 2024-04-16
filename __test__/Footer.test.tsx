@@ -3,15 +3,15 @@ import { screen, render } from "@testing-library/react";
 import Footer from "@/components/Footer";
 
 test("renders footer content", () => {
-    render(<Footer />)
+	render(<Footer />);
 
-    expect(screen.findByDisplayValue("All rights reserved")).toBeDefined()
-})
+	expect(screen.findByDisplayValue("All rights reserved")).toBeDefined();
+});
 
 test("renders correct copyright year", () => {
-    render(<Footer />)
+	render(<Footer />);
 
-    const currentYear = new Date().getFullYear()
+	const currentYear = new Date().getFullYear();
 
-    expect(screen.findByDisplayValue(currentYear)).toBeDefined()
-})
+	expect(screen.findByDisplayValue(currentYear)).toBeDefined();
+});

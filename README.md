@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">A TypeScript + NextJS + SCSS web app to find details about movies, tv shows and people</h1>
 
-## Getting Started
+<div align="center">Formatted with BiomeJS, tested with Vitest and Cypress 🎗</div>
 
-First, run the development server:
+<h3 align="center">
+  <a href="https://movies.nathanasowata.com/">Visit the live app</a> 
+</h3>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+![Screenshot](./public/screenshot.png "Screenshot Example")
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## About this project 📝
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+I am a frontend developer with a focus on React and it's ecosystem. This is a showcase project I built to demostrate my skills at this time. It is intended to demonstrate problem sloving encountered by real world web apps including server side data fetching, state management, custom form validation, testing, responsive UI and so on. 
+ 
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Project structure
 
-## Learn More
+- `__test__` Contains unit tests for all components. These test are written with _vitest_ and _@testing-library/react_
+- `cypress` Contains all end-to-end tests which I have written with _cypress_.
+- `src/app` Contains all the pages that make up this application.
+- `src/app/api` Contains server side custom API endpoints.
+- `src/components` Contains all reuseable components.
+- `src/utils` Contains utility files like custom functions and types which are use across the project. 
 
-To learn more about Next.js, take a look at the following resources:
+## How I built this project
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- I used NextJS 14 with App router to setup the project.
+- Data used in this project was provided by [TheMovieDB.org](https://developer.themoviedb.org/ "TMDB API Docs") API
+- For styling I used SCSS modules which helps me avoid naming clashes.
+- At this time next lint does not work with this version of nextjs so I used biomejs for code formatting.
+- I used icons which I accessed through react-icons. 
+- For unit testing I use vitest with react testig library.
+- And I used cypress for end-to-end testing.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Scripts
+- `dev` - Starts the development server
+- `format` - Runs code formatting on every file in `src`, `cypress` and `__test__` folders
+- `test` - Runs all unit tests with vitest
+- `cypress:open` - Opens Cypress and runs the e2e tests.
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+[MIT](https://opensource.org/licenses/MIT)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<hr>
+
+<<h3 align="center">
+  <a href="https://movies.nathanasowata.com/">Visit the live app</a> 
+</h3>
