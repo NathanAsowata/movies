@@ -14,7 +14,7 @@ const NavBar = () => {
 				Movies
 			</Link>
 
-			<span className={styles.desktopMenu}>
+			<span className={styles.desktopMenu} data-testid="menu">
 				<Link href="/">Home</Link>
 				<Link href="/search">Search</Link>
 				<Link href="/movies/upcoming">Upcoming Movies</Link>

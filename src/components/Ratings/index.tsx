@@ -14,7 +14,7 @@ const Ratings = ({ ratings }: { ratings: number }) => {
 	);
 
 	return (
-		<div>
+		<div data-testid="ratings">
 			{[...Array(filledStars)].map((_, i) => (
 				<FaStar className={styles.stars} key={i} />
 			))}
