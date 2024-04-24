@@ -7,6 +7,7 @@
 </h3>
 
 ![Screenshot](./public/screenshot.png "Screenshot Example")
+![Lighthouse](./public/lighthouse.png "Lighthouse score")
 
 ## About this project 📝
 
