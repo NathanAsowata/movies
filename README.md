@@ -1,4 +1,4 @@
-<h1 align="center">A TypeScript + NextJS + SCSS web app to find details about Movies, TV Shows and People</h1>
+<h1 align="center">Progressive Web App (PWA) to find details about Movies, TV Shows and People</h1>
 
 <div align="center">Formatted with BiomeJS, tested with Vitest and Cypress 🎗</div>
 
