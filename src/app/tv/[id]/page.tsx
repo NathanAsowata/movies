@@ -60,6 +60,7 @@ const TVDetails = ({ params }: { params: { id: string } }) => {
 								`https://image.tmdb.org/t/p/original${tvDetails.poster_path}`,
 							)}
 							alt={tvDetails.name}
+							priority
 							width={250}
 							height={375}
 							className={styles.poster}

@@ -9,6 +9,7 @@ const NavBar = () => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
+		<>
 		<nav className={styles.nav}>
 			<Link href="/" translate="no" className={styles.logo}>
 				Movies
@@ -41,6 +42,8 @@ const NavBar = () => {
 				</span>
 			)}
 		</nav>
+		<span className={styles.underlying}></span>
+		</>
 	);
 };
 

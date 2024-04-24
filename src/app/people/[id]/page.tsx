@@ -35,6 +35,7 @@ const PersonDetails = ({ params }: { params: { id: string } }) => {
 								`https://image.tmdb.org/t/p/original${personDetails.profile_path}`,
 							)}
 							alt={personDetails.name}
+							priority
 							width={250}
 							height={375}
 							className={styles.poster}
