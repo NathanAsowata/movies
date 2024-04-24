@@ -7,6 +7,7 @@ import { movieCardProps, personCardProps, tvCardProps } from "@/utils/types";
 import MovieCard from "@/components/MovieCard";
 import TvCard from "@/components/TvCard";
 import PersonCard from "@/components/PersonCard";
+import LoadingSkeleton from "@/components/LoadingSkeleton";
 
 const Home = () => {
 	const [activeTab, setActiveTab] = useState(1);
@@ -68,22 +69,28 @@ const Home = () => {
 					</h3>
 				</section>
 
-				<section className={styles.content}>
-					{selectedTab === "movie" &&
-						selectedItems.map((movie: movieCardProps) => (
-							<MovieCard key={movie.id} movie={movie} />
-						))}
+				{selectedItems.length === 0 && (
+					<LoadingSkeleton />
+				)}
 
-					{selectedTab === "tv" &&
-						selectedItems.map((tv: tvCardProps) => (
-							<TvCard key={tv.id} tv={tv} />
-						))}
+				{selectedItems.length > 0 && (
+					<section className={styles.content}>
+						{selectedTab === "movie" &&
+							selectedItems.map((movie: movieCardProps) => (
+								<MovieCard key={movie.id} movie={movie} />
+							))}
 
-					{selectedTab === "person" &&
-						selectedItems.map((person: personCardProps) => (
-							<PersonCard key={person.id} person={person} />
-						))}
-				</section>
+						{selectedTab === "tv" &&
+							selectedItems.map((tv: tvCardProps) => (
+								<TvCard key={tv.id} tv={tv} />
+							))}
+
+						{selectedTab === "person" &&
+							selectedItems.map((person: personCardProps) => (
+								<PersonCard key={person.id} person={person} />
+							))}
+					</section>
+				)}
 			</main>
 		</>
 	);
