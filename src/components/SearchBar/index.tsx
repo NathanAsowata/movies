@@ -16,11 +16,11 @@ const SearchBar = ({ currentQuery }: { currentQuery: string }) => {
 		// Prevent page reload on submit
 		e.preventDefault();
 
-		// Regex to disallow special characters except space, column, and hashtag
+		// Regex to disallow special characters except for space, column, and hashtag
 		const regex = /^[a-zA-Z0-9 :#.,]*$/;
 
 		// Validate user input
-		if (userInput.trim.length === 0) {
+		if (userInput === " ") {
 			setErrorMessage("Enter a valid search term");
 		} else if (!regex.test(userInput)) {
 			setErrorMessage("Enter only numbers, letters, spaces");
