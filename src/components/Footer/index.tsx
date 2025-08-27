@@ -2,10 +2,11 @@ import Link from "next/link";
 import styles from "./style.module.scss";
 
 const Footer = () => {
+	
 	return (
 		<footer className={styles.footer}>
 			<p>
-				&copy; <span> {new Date().getFullYear()} </span>. All rights reserved.
+				&copy; <span> {new Date().getFullYear()} </span>.
 				Designed and built by&nbsp;
 				<Link href="https://www.nathanasowata.com/" target="_blank">
 					Nathan Asowata
